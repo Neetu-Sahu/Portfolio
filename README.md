@@ -2,7 +2,7 @@
 
 A premium, interactive, and high-performance developer portfolio website designed with a dark theme. Built using modern frontend technologies to showcase backend engineering, research papers, projects, and verified credentials.
 
-🌐 **Live Demo:** [portfolio-alpha-ochre-ejeqekgnuj.vercel.app]
+🌐 **Live Demo:** https://portfolio-alpha-ochre-ejeqekgnuj.vercel.app
 
 ---
 
