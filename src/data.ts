@@ -101,7 +101,7 @@ export const projectList = [
     conclusion:
       'Khet Setu empowers farmers with technology-driven tools for learning, risk management, and sustainable farming. By combining AI, real-time insights, and gamification, it helps improve productivity, awareness, and agricultural growth.',
     tags: ['Agritech Learning', 'AI', 'Flask'],
-    github: 'https://github.com/rach-kanc/Khet-Setu',
+    github: 'https://github.com/Neetu-Sahu/Khet-Setu',
   },
   {
     title: 'Aurix',
