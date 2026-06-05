@@ -171,7 +171,7 @@ export const projectList = [
     conclusion:
       'This solution empowers users to evaluate news quickly, reducing the impact of misinformation through clear explanation and trustworthy predictions.',
     tags: ['Misinformation', 'NLP', 'ML', 'Data'],
-    github: 'https://github.com/yourusername/fake-news-detector',
+    github: 'https://github.com/Neetu-Sahu/Fake-News-Detector',
   },
 ];
 
