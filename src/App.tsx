@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { aboutText, aboutPillars, navLinks, certifications, researchHighlights, projectList, skillGroups, socialLinks, education, events } from './data';
 import { Contact } from './components/Contact';
 import { About } from './components/About';
@@ -80,6 +81,7 @@ function App() {
       )}
 
       {/* static certifications — no preview modal */}
+      <Analytics />
     </div>
   );
 }
