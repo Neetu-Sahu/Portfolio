@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', sans-serif;
+  background-color: #050816;
+  scroll-behavior: smooth;
+
+  /* Adjustable theme variables (defaults) */
+  --glass-elev: 12px;
+  --card-elev: 8px;
+  --glass-blur: 14px;
+  --accent-opacity: 0.06;
+  --persist-highlight-opacity: 0.08;
+  --section-radius: 28px;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(44, 168, 255, 0.12), transparent 28%),
+    radial-gradient(circle at bottom, rgba(51, 255, 255, 0.08), transparent 22%),
+    #050816;
+  color: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+}
+
+.glass-card {
+  background: rgba(9, 17, 38, 0.66);
+  border: 1px solid rgba(81, 198, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 12px 55px rgba(7, 15, 40, 0.45);
+}
+
+.gradient-border {
+  background: linear-gradient(135deg, rgba(51, 255, 255, 0.22), rgba(44, 168, 255, 0.16));
+  padding: 1px;
+  border-radius: 24px;
+}
+
+.scrollbar-track {
+  scrollbar-color: rgba(44, 168, 255, 0.5) transparent;
+  scrollbar-width: thin;
+}
+
+.scrollbar-track::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollbar-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-track::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.4);
+  border-radius: 999px;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.03);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.glow-line {
+  background: linear-gradient(90deg, rgba(51, 255, 255, 0.25), rgba(44, 168, 255, 0.95), rgba(51, 255, 255, 0.25));
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Timeline central line styling */
+.timeline-line {
+  background: linear-gradient(180deg, rgba(44, 168, 255, 0.14), rgba(255, 255, 255, 0.06) 45%, rgba(44, 168, 255, 0.08));
+  box-shadow: 0 0 20px rgba(44, 168, 255, 0.06), inset 0 0 6px rgba(255, 255, 255, 0.02);
+  background-size: 100% 200%;
+  transition: box-shadow 220ms ease, opacity 200ms ease;
+  animation: timelineShimmer 4s linear infinite;
+}
+
+@keyframes timelineShimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* stronger glow on hover for the nearby card */
+.hover-glow:hover~.timeline-line,
+.hover-glow:hover .timeline-line {
+  box-shadow: 0 0 28px rgba(44, 168, 255, 0.12), inset 0 0 8px rgba(255, 255, 255, 0.03);
+}
+
+/* Spotlight cursor-following overlay */
+:root {
+  --mx: 50%;
+  --my: 50%;
+}
+
+.spotlight-overlay {
+  background-image: radial-gradient(circle at var(--mx) var(--my), rgba(44, 168, 255, 0.08) 0%, rgba(44, 168, 255, 0.04) 6%, transparent 30%),
+    radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.03) 0%, transparent 18%);
+  transition: background-position 120ms linear, opacity 200ms linear;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Hover-targeted glow / enhanced border for cards */
+.hover-glow {
+  position: relative;
+  transition: box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(44, 168, 255, 0.12), rgba(44, 168, 255, 0.06) 10%, transparent 35%);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 220ms ease;
+}
+
+.hover-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(44, 168, 255, 0.08), 0 6px 18px rgba(7, 15, 40, 0.5);
+  border-color: rgba(44, 168, 255, 0.32);
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+.glow-border-strong {
+  border: 1px solid rgba(44, 168, 255, 0.22);
+}
+
+/* Enhanced glassmorphism for entire sections */
+.glass-section {
+  position: relative;
+  padding: 28px;
+  border-radius: 28px;
+  --glass-elev: 12px;
+  --glass-soft: rgba(255, 255, 255, 0.035);
+  --glass-deep: rgba(3, 8, 20, 0.6);
+  --glass-accent: rgba(44, 168, 255, 0.06);
+  background: linear-gradient(180deg, rgba(8, 12, 24, 0.62), rgba(12, 16, 30, 0.5));
+  border: 1px solid rgba(44, 168, 255, 0.06);
+  box-shadow: 0 var(--glass-elev) 40px var(--glass-deep), inset 0 1px 0 var(--glass-soft);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  overflow: hidden;
+}
+
+
+.glass-section::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, rgba(44, 168, 255, 0.06), rgba(51, 255, 255, 0.03));
+  mask: linear-gradient(#000, #000);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glass-section>* {
+  position: relative;
+  z-index: 2;
+}
+
+/* decorative subtle grid / dots in background for a futuristic feel */
+.glass-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Accent glow line on the left edge */
+.glass-section .section-accent {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  bottom: 18px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(51, 255, 255, 0.14), rgba(44, 168, 255, 0.06));
+  box-shadow: 0 0 18px rgba(44, 168, 255, 0.06);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Tighter inner spacing for sections on smaller screens */
+@media (max-width: 768px) {
+  .glass-section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
+
+/* Make inner glass-cards stand out inside sections */
+.glass-section .glass-card {
+  --card-elev: 8px;
+  background: linear-gradient(180deg, rgba(12, 14, 20, 0.6), rgba(6, 8, 14, 0.5));
+  border: 1px solid rgba(44, 168, 255, 0.07);
+  box-shadow: 0 var(--card-elev) 30px rgba(2, 6, 16, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02), inset 0 -6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 260ms cubic-bezier(.2, .9, .2, 1), box-shadow 260ms ease, border-radius 260ms ease;
+  will-change: transform, box-shadow;
+}
+
+/* Lift effect for inner cards within glass sections */
+.glass-section .glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(44, 168, 255, 0.08);
+}
+
+/* Neuromorphism - subtle raised look for small UI elements inside sections */
+.glass-section .rounded-3xl,
+.glass-section .rounded-2xl,
+.glass-section .rounded-\[1\.8rem\],
+.glass-section .rounded-\[1\.75rem\] {
+  box-shadow: 6px 6px 18px rgba(2, 6, 16, 0.6), -6px -6px 18px rgba(36, 170, 255, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  background: linear-gradient(180deg, rgba(8, 10, 16, 0.6), rgba(14, 16, 24, 0.55));
+}
+
+/* Persistent subtle highlight even without cursor hover */
+.glass-section {
+  --persist-highlight: radial-gradient(circle at 18% 12%, rgba(44, 168, 255, 0.035), transparent 24%);
+}
+
+.glass-section::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), var(--persist-highlight);
+  background-repeat: repeat, no-repeat;
+  background-size: 24px 24px, 60% 60%;
+  opacity: 0.08;
+}
+
+/* Slight brighter state when section is focused/hovered */
+.glass-section:hover::after {
+  opacity: 0.14;
+}
+
+/* make headings and important text pop a bit inside glass sections */
+.glass-section h2,
+.glass-section h3,
+.glass-section h1 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
