@@ -1,5 +1,4 @@
 import { Modal } from './Modal';
-import { FiDownload } from 'react-icons/fi';
 
 export function CertificationModal({ cert, onClose }: { cert: { title: string; image: string }; onClose: () => void }) {
   return (
@@ -10,12 +9,6 @@ export function CertificationModal({ cert, onClose }: { cert: { title: string; i
             <div>
               <p className="text-sm text-slate-300">Certificate</p>
               <h3 className="mt-1 text-2xl font-semibold text-white">{cert.title}</h3>
-            </div>
-            <div className="flex items-center gap-2">
-              <a href={cert.image} download className="inline-flex items-center gap-2 rounded-2xl bg-cyan-400/10 px-4 py-2 text-sm text-cyan-100 transition hover:bg-cyan-400/15">
-                <FiDownload className="h-4 w-4" />
-                Download
-              </a>
             </div>
           </div>
 
