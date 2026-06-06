@@ -9,7 +9,6 @@ A premium, interactive, and high-performance developer portfolio website designe
 ## 🚀 Key Features
 
 * **⚡ Cyberpunk & Glassmorphic Design:** Harmonious dark color palette with custom animated backlights, glowing borders, and glassmorphism styling.
-* **🖱️ Cursor-Following Backlights:** Fluid cursor-spotlight effect that moves dynamically behind glass cards and sections.
 * **🧠 Interactive SVG Tech Mindmap:** An animated, responsive network nodes mindmap mapping core skills using SVG `<animateMotion>` pulsing tech links and interactive tooltips.
 * **✨ Smooth Micro-Animations:** Elegant card hover-lift animations (`translateY(-6px)`) powered by Framer Motion, matching sheen swept reflections.
 * **📄 Research & Credentials Hub:** Dedicated sections showcasing downloadable research papers (PDF format) and interactive preview modals for certifications.
